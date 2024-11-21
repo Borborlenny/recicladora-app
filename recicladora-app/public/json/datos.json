@@ -1,0 +1,115 @@
+{
+    "usuario":[
+        {
+            "id": 1,
+            "nombre": "Juan",
+            "email": "juanalvarez@gmail.com",
+            "rol": "admin",
+            "estado": true
+           
+        },
+
+        {
+            "id": 2,
+            "nombre": "Pablo",
+            "email": "pablorodriguez@hotmail.com",
+            "rol": "hogar",
+            "estado": false 
+        }
+    ],
+
+    "hogar":[
+        {
+            "id": 1,
+            "nombre": "Carlos",
+            "tipo_vivienda":"departamento",
+            "direccion": "Calle 123, Ciudad Centra",
+            "referencia": "departamento esquinero, frente a pollos barcelona",
+            "telefono": "04-3878572",
+            "email": "juan.perez@example.com",
+            "fecha_registro": "15-Noviembre-2024"
+          
+            
+        },
+        {
+            "id": 2,
+            "nombre": "María",
+            "tipo_vivienda":"casa",
+            "direccion": "Avenida Principal 456, Barrio Norte",
+            "referencia": "casa esquinera, frente a papeleria JuanMarcet",
+            "telefono": "04-3878522",
+            "email": "maria.gomez@example.com",
+            "fecha_registro": "15-Noviembre-2024"
+            
+        }
+    ],
+
+    "material":[
+        {
+            "id": 1,
+            "tipo_material":"carton",
+            "peso_promedio":"5kg",
+            "cantidad_promedio": "10",
+            "reciclable": true
+
+            
+        },
+        {
+            "id": 2,
+            "tipo_material":"vidrio",
+            "peso_promedio":"3.5kg",
+            "cantidad_promedio": "2",
+            "reciclable": false
+        }
+    ],
+
+    "empresa":[
+        {
+           "id": 1,
+            "nombre_empresa": "Recicladora S.A",
+            "tipo_empressa":"mediana",
+            "telefono": "04-3878522",
+            "direccion": "Avenida Principal 456, Barrio Norte",
+            "email": "jose.gomez@example.com",
+            "convenio_activo": true,
+            "materiales_reciclables":"plastico",
+            "fecha_registro": "15-Noviembre-2024"
+
+        },
+        {
+            "id": 2,
+            "nombre_empresa": "Urvaseo S.A",
+            "tipo_empressa":"grande",
+            "telefono": "04-3878544",
+            "direccion": "Avenida Principal 456, Barrio Sur",
+            "email": "jose.quinrero@example.com",
+            "convenio_activo": true,
+            "materiales_reciclables":"papel",
+            "fecha_registro": "15-Noviembre-2023"
+            
+        }
+    ],
+
+    "ruta":[
+        {
+            "id": 1,
+            "origen": "Punto de recoleccion 1",
+            "destino": "Fundacion",
+            "distancia":"10km",
+            "duracion": "20min",
+            "estado": "en espera",
+            "alta_prioridad": true
+           
+        },
+
+        {
+            "id": 2,
+            "origen": "Punto de recoleccion 2",
+            "destino": "Fundacion",
+            "distancia": "25km",
+            "duracion": "45min",  
+            "estado": "en espera",
+            "alta_prioridad": false
+        }
+    ]
+}
