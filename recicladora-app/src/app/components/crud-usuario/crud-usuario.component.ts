@@ -1,15 +1,20 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { UsuarioJsonService } from '../../services/usuario-json.service';
-import { Usuario } from '../../models/Usuario';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {UsuarioJsonService} from '../../services/usuario-json.service';
+import {Usuario} from '../../models/Usuario';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms'
 import {MatTableDataSource} from '@angular/material/table'
-import { MatPaginator} from '@angular/material/paginator';
+import {MatPaginator} from '@angular/material/paginator';
 import {MatFormField} from '@angular/material/form-field';
-import { MatLabel } from '@angular/material/form-field';
+import {MatLabel} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input'
+import { MatOption } from '@angular/material/core';
+import { MatSelect } from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 @Component({
   selector: 'app-crud-usuario',
-  imports: [MatFormField, MatLabel, ReactiveFormsModule],
+  imports: [MatFormField, MatLabel, ReactiveFormsModule, MatInputModule, MatOption, MatSelect, MatCheckboxModule],
   templateUrl: './crud-usuario.component.html',
   styleUrl: './crud-usuario.component.css'
 })
