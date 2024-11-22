@@ -1,0 +1,57 @@
+nav{
+  background-color: black;
+}
+
+a{
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border: 1.5px solid white;
+  margin: 2px 4px;
+  border-radius: 6px;
+  padding: 5px 10px;
+  background: linear-gradient(to right, black 100%, white 100%);
+
+}
+
+a:hover{
+  color: black;
+  background: linear-gradient(to right, black 0%, white 0%);
+  animation: gradientAnimation .15s ease;
+}
+
+#nav-principal{
+  padding: 10px;
+}
+
+.anim-gradient{
+  animation: gradientAnimation .15s ease;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background: linear-gradient(to right, black 100%, white 100%);
+    color: #ffffff;
+  }
+  20% {
+    background: linear-gradient(to right, black 80%, white 80%);
+    color: #cccccc;
+  }
+  40% {
+    background: linear-gradient(to right, black 60%, white 60%);
+    color: #999999;
+  }
+  60% {
+    background: linear-gradient(to right, black 40%, white 40%);
+    color: #666666;
+  }
+  80% {
+    background: linear-gradient(to right, black 20%, white 20%);
+    color: #333333;
+  }
+  100% {
+    background: linear-gradient(to right, black 0%, white 0%);
+    color: #000000;
+  }
+}
