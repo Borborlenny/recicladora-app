@@ -1,3 +1,110 @@
 <body class="bg-slate-50 dark:bg-zinc-900">
-  <p class="m-0 text-black dark:text-white">crud-material works!</p>
+  <form [formGroup]="form" class="ocultar" (submit)="onSubmit()" class=" w-full bg-slate-50 dark:bg-zinc-900">
+    <div class="container-title">
+      <h3 class="text-black dark:text-white">{{title}}</h3>
+    </div>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Tipo de material:</mat-label>
+      <mat-select formControlName="tipo_material">
+        <mat-option [value]="" >Seleccione--</mat-option>
+        <mat-option value="carton">Carton</mat-option>
+        <mat-option value="vidrio">Vidrio</mat-option>
+        <mat-option value="metal">Metal</mat-option>
+      </mat-select>
+      <mat-error>
+        @if(form.get('tipo_material')?.invalid && form.get('tipo_material')?.dirty || form.get('tipo_material')?.touched){
+          @if(form.get('tipo_material')?.errors?.['required']){
+            <span>Tipo de material es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+   
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Peso promedio:</mat-label>
+      <input matInput type="email" placeholder="Peso promedio" formControlName="peso_promedio">
+      <mat-error>
+        @if(form.get('peso_promedio')?.invalid && form.get('peso_promedio')?.dirty || form.get('peso_promedio')?.touched){
+          @if(form.get('peso_promedio')?.errors?.['required']){
+            <span>Peso promedio es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+ 
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Cantidad Promedio:</mat-label>
+      <input matInput type="text" placeholder="Cantidad Promedio" formControlName="cantidad_promedio">
+      <mat-error>
+        @if(form.get('cantidad_promedio')?.invalid && form.get('cantidad_promedio')?.dirty || form.get('cantidad_promedio')?.touched){
+          @if(form.get('cantidad_promedio')?.errors?.['required']){
+            <span>Cantidad Promedio es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="reciclable" ><span class="text-black dark:text-white">Reciclable</span></mat-checkbox>
+
+    <div>
+      <button mat-raised-button class="btn" color="accent" type="submit">Guardar</button>
+      <button mat-raised-button class="btn" color="warn" type="reset" (click)="clearForm()">Cancelar</button>
+    </div>
+
+    <div class="w-full h-0.5 bg-neutral-600 mt-6 dark:bg-neutral-950 "></div>
+  </form>
+
+  <!-- ------------------------------------------------------------------------------------- -->
+  <!-- Buscador -->
+  <div class="search-container" class="bg-slate-50 dark:bg-zinc-900">
+    <mat-form-field appearance="outline" class="mr-5 ml-5">
+      <mat-label class="text-black dark:text-white">Buscar:</mat-label>
+      <input matInput type="search" placeholder="Tipo de material" #searchInput (keyup)="search(searchInput)">
+    </mat-form-field>
+    <button mat-raised-button class="btn" color="primary" (click)="search(searchInput)">Buscar</button>
+  </div>
+
+  <!-- ------------------------------------------------------------------------------------- -->
+  <!-- Tabla para mostrar usuarios -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 bg-slate-50 dark:bg-zinc-900">
+
+    <ng-container matColumnDef="tipo_material">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Tipo de material</th>
+      <td mat-cell *matCellDef="let material" class="text-black dark:text-white">{{material.tipo_material}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="peso_promedio">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Peso Promedio</th>
+      <td mat-cell *matCellDef="let material" class="text-black dark:text-white">{{material.peso_promedio}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cantidad_promedio">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Cantidad Promedio</th>
+      <td mat-cell *matCellDef="let material" class="text-black dark:text-white">{{material.cantidad_promedio}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="reciclable">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Reciclable</th>
+      <td mat-cell *matCellDef="let material" class="text-black dark:text-white">{{material.reciclable? 'Si' : 'No'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Acciones</th>
+      <td mat-cell *matCellDef="let material">
+        <button class="btn" mat-raised-button color="accent" (click)="editar(material)">Editar</button>
+        <button class="btn" mat-raised-button color="warn" (click)="eliminar(material)">Eliminar</button>
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['tipo_material','peso_promedio','cantidad_promedio','reciclable','actions']"></tr>
+    <tr mat-row *matRowDef="let row, columns: ['tipo_material','peso_promedio','cantidad_promedio','reciclable','actions'];"></tr>
+
+  </table>
+
+  <mat-paginator  [pageSizeOptions]="[5,10,100]" arial-label="Select page" showFirstLastButtons></mat-paginator>
+
 </body>
+

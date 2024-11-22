@@ -1,3 +1,175 @@
 <body class="bg-slate-50 dark:bg-zinc-900">
-  <p class="m-0 text-black dark:text-white">crud-empresa works!</p>
+  <form [formGroup]="form" class="ocultar" (submit)="onSubmit()" class=" w-full bg-slate-50 dark:bg-zinc-900">
+    <div class="container-title">
+      <h3 class="text-black dark:text-white">{{title}}</h3>
+    </div>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Tipo de Empresa:</mat-label>
+      <mat-select formControlName="tipo_empressa">
+        <mat-option [value]="" >Seleccione--</mat-option>
+        <mat-option value="mediana">Mediana</mat-option>
+        <mat-option value="grande">Grande</mat-option>
+      </mat-select>
+      <mat-error>
+        @if(form.get('tipo_empressa')?.invalid && form.get('tipo_empressa')?.dirty || form.get('tipo_empressa')?.touched){
+          @if(form.get('tipo_empressa')?.errors?.['required']){
+            <span>Tipo de Empresa es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Nombre de Empresa:</mat-label>
+      <input matInput type="text" placeholder="Nombre de Empresa" formControlName="nombre_empresa">
+      <mat-error>
+        @if(form.get('nombre_empresa')?.invalid && form.get('nombre_empresa')?.dirty || form.get('nombre_empresa')?.touched){
+          @if(form.get('nombre_empresa')?.errors?.['required']){
+            <span>Nombre de Empresa es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Telefono:</mat-label>
+      <input matInput type="tel" placeholder="Ingrese Telefono" formControlName="telefono">
+      <mat-error>
+        @if(form.get('telefono')?.invalid && form.get('telefono')?.dirty || form.get('telefono')?.touched){
+          @if(form.get('telefono')?.errors?.['required']){
+            <span>Telefono es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Direccion:</mat-label>
+      <input matInput type="text" placeholder="Ingrese Direccion" formControlName="direccion">
+      <mat-error>
+        @if(form.get('direccion')?.invalid && form.get('direccion')?.dirty || form.get('direccion')?.touched){
+          @if(form.get('direccion')?.errors?.['required']){
+            <span>Direccion es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Email:</mat-label>
+      <input matInput type="email" placeholder="Ingrese Email" formControlName="email">
+      <mat-error>
+        @if(form.get('email')?.invalid && form.get('email')?.dirty || form.get('email')?.touched){
+          @if(form.get('email')?.errors?.['required']){
+            <span>Email es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Materiales Reciclables:</mat-label>
+      <input matInput type="text" placeholder="materiales reciclables" formControlName="materiales_reciclables">
+      <mat-error>
+        @if(form.get('materiales_reciclables')?.invalid && form.get('materiales_reciclables')?.dirty || form.get('materiales_reciclables')?.touched){
+          @if(form.get('materiales_reciclables')?.errors?.['required']){
+            <span>Materiales Reciclables es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Fecha Registro:</mat-label>
+      <input matInput type="text" placeholder="Fecha Registro" formControlName="fecha_registro">
+      <mat-error>
+        @if(form.get('fecha_registro')?.invalid && form.get('fecha_registro')?.dirty || form.get('fecha_registro')?.touched){
+          @if(form.get('fecha_registro')?.errors?.['required']){
+            <span>Fecha Registro es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="convenio_activo" ><span class="text-black dark:text-white">Convenio</span></mat-checkbox>
+
+    <div>
+      <button mat-raised-button class="btn" color="accent" type="submit">Guardar</button>
+      <button mat-raised-button class="btn" color="warn" type="reset" (click)="clearForm()">Cancelar</button>
+    </div>
+
+    <div class="w-full h-0.5 bg-neutral-600 mt-6 dark:bg-neutral-950 "></div>
+  </form>
+
+  <!-- ------------------------------------------------------------------------------------- -->
+  <!-- Buscador -->
+  <div class="search-container" class="bg-slate-50 dark:bg-zinc-900">
+    <mat-form-field appearance="outline" class="mr-5 ml-5">
+      <mat-label class="text-black dark:text-white">Buscar:</mat-label>
+      <input matInput type="search" placeholder="nombre_empresa" #searchInput (keyup)="search(searchInput)">
+    </mat-form-field>
+    <button mat-raised-button class="btn" color="primary" (click)="search(searchInput)">Buscar</button>
+  </div>
+
+  <!-- ------------------------------------------------------------------------------------- -->
+  <!-- Tabla para mostrar usuarios -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 bg-slate-50 dark:bg-zinc-900">
+
+    <ng-container matColumnDef="nombre_empresa">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Nombre Empresa</th>
+      <td mat-cell *matCellDef="let empresa" class="text-black dark:text-white">{{empresa.nombre_empresa}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipo_empressa">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Tipo Empresa</th>
+      <td mat-cell *matCellDef="let empresa" class="text-black dark:text-white">{{empresa.tipo_empressa}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="telefono">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Telefono</th>
+      <td mat-cell *matCellDef="let empresa" class="text-black dark:text-white">{{empresa.telefono}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="direccion">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Direccion</th>
+      <td mat-cell *matCellDef="let empresa" class="text-black dark:text-white">{{empresa.direccion}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Email</th>
+      <td mat-cell *matCellDef="let empresa" class="text-black dark:text-white">{{empresa.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha_registro">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Fecha Registro</th>
+      <td mat-cell *matCellDef="let empresa" class="text-black dark:text-white">{{empresa.fecha_registro}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="materiales_reciclables">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Materiales Reciclables</th>
+      <td mat-cell *matCellDef="let empresa" class="text-black dark:text-white">{{empresa.materiales_reciclables}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="convenio_activo">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Convenio</th>
+      <td mat-cell *matCellDef="let empresa" class="text-black dark:text-white">{{empresa.convenio_activo? 'Activo' : 'Inactivo'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Acciones</th>
+      <td mat-cell *matCellDef="let empresa">
+        <button class="btn" mat-raised-button color="accent" (click)="editar(empresa)">Editar</button>
+        <button class="btn" mat-raised-button color="warn" (click)="eliminar(empresa)">Eliminar</button>
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['nombre_empresa','tipo_empressa','telefono','direccion','email','convenio_activo','materiales_reciclables','fecha_registro','actions']"></tr>
+    <tr mat-row *matRowDef="let row, columns: ['nombre_empresa','tipo_empressa','telefono','direccion','email','convenio_activo','materiales_reciclables','fecha_registro','actions'];"></tr>
+
+  </table>
+
+  <mat-paginator  [pageSizeOptions]="[5,10,100]" arial-label="Select page" showFirstLastButtons></mat-paginator>
+
 </body>
