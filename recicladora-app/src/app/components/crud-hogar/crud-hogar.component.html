@@ -1,1 +1,163 @@
-<p>crud-hogar works!</p>
+<body class="bg-slate-50 dark:bg-zinc-900">
+  <form [formGroup]="form" class="ocultar" (submit)="onSubmit()" class="bg-slate-50  dark:bg-zinc-900">
+    <div class="container-title">
+      <h3 class="text-black dark:text-white">{{title}}</h3>
+    </div>
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Nombre:</mat-label>
+      <input matInput type="text" placeholder="Nombre" class="bg-slate-600" formControlName="nombre">
+      <mat-error>
+        @if(form.get('nombre')?.invalid && form.get('nombre')?.dirty || form.get('nombre')?.touched){
+          @if(form.get('nombre')?.errors?.['required']){
+            <span>Nombre es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Tipo de Vivienda:</mat-label>
+      <mat-select formControlName="tipo_vivienda">
+        <mat-option [value]="" >Seleccione--</mat-option>
+        <mat-option value="departamento">Departamento</mat-option>
+        <mat-option value="casa">Casa</mat-option>
+      </mat-select>
+      <mat-error>
+        @if(form.get('tipo_vivienda')?.invalid && form.get('tipo_vivienda')?.dirty || form.get('tipo_vivienda')?.touched){
+          @if(form.get('tipo_vivienda')?.errors?.['required']){
+            <span>Tipo de vivienda es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Dirección:</mat-label>
+      <input matInput type="text" placeholder="Dirección" formControlName="direccion">
+      <mat-error>
+        @if(form.get('direccion')?.invalid && form.get('direccion')?.dirty || form.get('direccion')?.touched){
+          @if(form.get('direccion')?.errors?.['required']){
+            <span>Dirección es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Referencia:</mat-label>
+      <input matInput type="text" placeholder="Referencia" formControlName="referencia">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Telefono:</mat-label>
+      <input matInput type="text" placeholder="Telefono" formControlName="telefono">
+      <mat-error>
+        @if(form.get('telefono')?.invalid && form.get('telefono')?.dirty || form.get('telefono')?.touched){
+          @if(form.get('telefono')?.errors?.['required']){
+            <span>Telefono es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="formElement">
+      <mat-label class="text-black dark:text-white">Email:</mat-label>
+      <input matInput type="email" placeholder="Ingrese Email" formControlName="email">
+      <mat-error>
+        @if(form.get('email')?.invalid && form.get('email')?.dirty || form.get('email')?.touched){
+          @if(form.get('email')?.errors?.['required']){
+            <span>Email es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="outline" class="formElement">
+      <mat-label>Fecha de Registro:</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Fecha" formControlName="fecha_registro" [min]="fechaMinima" [max]="fechaMaxima"/>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error>
+        @if(form.get('fecha_registro')?.invalid && form.get('fecha_registro')?.dirty || form.get('fecha_registro')?.touched){
+          @if(form.get('fecha_registro')?.errors?.['required']){
+            <span>Fecha de Registro es requerido.</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field> -->
+
+    <!-- <mat-checkbox formControlName="estado" ><span class="text-black dark:text-white">Estado</span></mat-checkbox> -->
+
+    <div>
+      <button mat-raised-button class="btn" color="accent" type="submit">Guardar</button>
+      <button mat-raised-button class="btn" color="warn" type="reset" (click)="clearForm()">Cancelar</button>
+    </div>
+
+    <div class="w-full h-0.5 bg-neutral-600 mt-6 dark:bg-neutral-950 "></div>
+  </form>
+
+  <!-- ------------------------------------------------------------------------------------- -->
+  <!-- Buscador -->
+  <div class="search-container" class="bg-slate-50 dark:bg-zinc-900">
+    <mat-form-field appearance="outline" class="mr-5 ml-5">
+      <mat-label class="text-black dark:text-white">Buscar:</mat-label>
+      <input class="text-black dark:text-white" matInput type="search" placeholder="nombre o tipo de vivienda" #searchInput (keyup)="search(searchInput)">
+    </mat-form-field>
+    <button mat-raised-button class="btn" color="primary" (click)="search(searchInput)">Buscar</button>
+  </div>
+
+  <!-- ------------------------------------------------------------------------------------- -->
+  <!-- Tabla para mostrar usuarios -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 bg-slate-50 dark:bg-zinc-900">
+
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Nombre</th>
+      <td mat-cell *matCellDef="let hogar" class="text-black dark:text-white">{{hogar.nombre}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipo_vivienda">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Tipo de vivienda</th>
+      <td mat-cell *matCellDef="let hogar" class="text-black dark:text-white">{{hogar.tipo_vivienda}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="direccion">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Dirección</th>
+      <td mat-cell *matCellDef="let hogar" class="text-black dark:text-white">{{hogar.tipo_vivienda}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="referencia">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Referencia</th>
+      <td mat-cell *matCellDef="let hogar" class="text-black dark:text-white">{{hogar.referencia}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="telefono">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Telefono</th>
+      <td mat-cell *matCellDef="let hogar" class="text-black dark:text-white">{{hogar.telefono}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Email</th>
+      <td mat-cell *matCellDef="let hogar" class="text-black dark:text-white">{{hogar.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha_registro">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Fecha de registro</th>
+      <td mat-cell *matCellDef="let hogar" class="text-black dark:text-white">{{hogar.fecha_registro  | date:'dd-MMM-yyyy'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Acciones</th>
+      <td mat-cell *matCellDef="let hogar">
+        <button class="btn" mat-raised-button color="accent" (click)="editar(hogar)">Editar</button>
+        <button class="btn" mat-raised-button color="warn" (click)="eliminar(hogar)">Eliminar</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['nombre','tipo_vivienda','direccion','referencia','telefono','email','fecha_registro','actions']"></tr>
+    <tr mat-row *matRowDef="let row, columns: ['nombre','tipo_vivienda','direccion','referencia','telefono','email','fecha_registro','actions'];"></tr>
+
+  </table>
+
+  <mat-paginator  [pageSizeOptions]="[5,10,100]" arial-label="Select page" showFirstLastButtons></mat-paginator>
+
+</body>

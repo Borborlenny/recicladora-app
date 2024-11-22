@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {UsuarioJsonService} from '../../services/usuario-json.service';
 import {Usuario} from '../../models/Usuario';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms'
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms'
 import {MatTableDataSource} from '@angular/material/table'
 import {MatPaginator} from '@angular/material/paginator';
 import {MatFormField} from '@angular/material/form-field';
@@ -12,19 +12,30 @@ import { MatSelect } from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-crud-usuario',
-  imports: [MatFormField, MatLabel, ReactiveFormsModule, MatInputModule, MatOption, MatSelect, MatCheckboxModule, MatPaginator, MatTableModule, MatButtonModule],
+  imports: [MatFormField, MatLabel, ReactiveFormsModule, MatInputModule, MatOption, MatSelect,
+    MatCheckboxModule, MatPaginator, MatTableModule, MatButtonModule, CommonModule ],
   templateUrl: './crud-usuario.component.html',
   styleUrl: './crud-usuario.component.css'
 })
 export class CrudUsuarioComponent implements OnInit, AfterViewInit{
+  title:string = "Gestión de Usuarios";
   form!: FormGroup
   isEditMode: boolean = false
   currentId!: number
   dataSource = new MatTableDataSource<Usuario>()
   @ViewChild(MatPaginator) paginador!: MatPaginator
+
+  // Variable que controla el modo oscuro
+  isDarkMode: boolean = false;
+
+  toggleDarkMode() {
+    // Alterna entre modo claro y oscuro
+    this.isDarkMode = !this.isDarkMode;
+  }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator= this.paginador

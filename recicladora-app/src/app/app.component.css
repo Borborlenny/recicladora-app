@@ -1,3 +1,8 @@
+.title{
+  color: #ffffff;
+  font-weight: bold;
+}
+
 nav{
   background-color: black;
 }
@@ -12,7 +17,6 @@ a{
   border-radius: 6px;
   padding: 5px 10px;
   background: linear-gradient(to right, black 100%, white 100%);
-
 }
 
 a:hover{
@@ -22,7 +26,10 @@ a:hover{
 }
 
 #nav-principal{
-  padding: 10px;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .anim-gradient{
@@ -34,24 +41,71 @@ a:hover{
     background: linear-gradient(to right, black 100%, white 100%);
     color: #ffffff;
   }
+  10% {
+    background: linear-gradient(to right, black 90%, white 90%);
+    color: #dddddd;
+  }
   20% {
     background: linear-gradient(to right, black 80%, white 80%);
     color: #cccccc;
+  }
+  30% {
+    background: linear-gradient(to right, black 70%, white 70%);
+    color: #aaaaaa;
   }
   40% {
     background: linear-gradient(to right, black 60%, white 60%);
     color: #999999;
   }
+  50% {
+    background: linear-gradient(to right, black 50%, white 50%);
+    color: #888888;
+  }
   60% {
     background: linear-gradient(to right, black 40%, white 40%);
     color: #666666;
   }
+  70% {
+    background: linear-gradient(to right, black 30%, white 30%);
+    color: #555555;
+  }
   80% {
     background: linear-gradient(to right, black 20%, white 20%);
-    color: #333333;
+    color: #444444;
+  }
+  80% {
+    background: linear-gradient(to right, black 10%, white 10%);
+    color: #222222;
   }
   100% {
     background: linear-gradient(to right, black 0%, white 0%);
     color: #000000;
+  }
+}
+
+
+.rotation{
+  animation: rotationAnimation .5s ease-in-out;
+}
+
+.noRot{
+  animation: rotationAnimationInv .5s ease-in-out;
+}
+
+@keyframes rotationAnimation{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotationAnimationInv{
+  0%{
+    transform: rotate(360deg);
+  }
+  100%{
+    transform: rotate(0deg);
   }
 }
