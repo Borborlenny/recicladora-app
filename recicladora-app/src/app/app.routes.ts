@@ -4,6 +4,12 @@ import { CrudUsuarioComponent } from './components/crud-usuario/crud-usuario.com
 
 export const routes: Routes = [
   {
+    path: '',
+    loadComponent: () =>
+      import('./components/interface-entidades/interface-entidades.component')
+    .then(c => c.InterfaceEntidadesComponent)
+  },
+  {
     path: 'usuario',
     loadComponent: () =>
       import('./components/crud-usuario/crud-usuario.component')

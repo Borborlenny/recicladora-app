@@ -80,19 +80,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="formElement">
-      <mat-label class="text-black dark:text-white">Fecha Registro:</mat-label>
-      <input matInput type="text" placeholder="Fecha Registro" formControlName="fecha_registro">
-      <mat-error>
-        @if(form.get('fecha_registro')?.invalid && form.get('fecha_registro')?.dirty || form.get('fecha_registro')?.touched){
-          @if(form.get('fecha_registro')?.errors?.['required']){
-            <span>Fecha Registro es requerido.</span>
-          }
-        }
-      </mat-error>
-    </mat-form-field>
-
-    <mat-checkbox formControlName="convenio_activo" ><span class="text-black dark:text-white">Convenio</span></mat-checkbox>
+    <mat-checkbox formControlName="convenio_activo" ><span class="text-black dark:text-white">Tiene Convenio</span></mat-checkbox>
 
     <div>
       <button mat-raised-button class="btn" color="accent" type="submit">Guardar</button>
@@ -107,7 +95,7 @@
   <div class="search-container" class="bg-slate-50 dark:bg-zinc-900">
     <mat-form-field appearance="outline" class="mr-5 ml-5">
       <mat-label class="text-black dark:text-white">Buscar:</mat-label>
-      <input matInput type="search" placeholder="nombre_empresa" #searchInput (keyup)="search(searchInput)">
+      <input matInput type="search" placeholder="nombre o empresa" #searchInput (keyup)="search(searchInput)">
     </mat-form-field>
     <button mat-raised-button class="btn" color="primary" (click)="search(searchInput)">Buscar</button>
   </div>
@@ -143,7 +131,7 @@
 
     <ng-container matColumnDef="fecha_registro">
       <th mat-header-cell *matHeaderCellDef class="text-black dark:text-white">Fecha Registro</th>
-      <td mat-cell *matCellDef="let empresa" class="text-black dark:text-white">{{empresa.fecha_registro}}</td>
+      <td mat-cell *matCellDef="let empresa" class="text-black dark:text-white">{{empresa.fecha_registro  | date:'dd-MMM-yyyy'}}</td>
     </ng-container>
 
     <ng-container matColumnDef="materiales_reciclables">

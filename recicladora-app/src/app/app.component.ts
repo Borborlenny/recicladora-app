@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent{
-  title = 'recicladora-app';
+  title = 'ReciClean';
   isAnim:boolean = false;
 
   darkMode = signal<boolean>(false);

@@ -1,12 +1,15 @@
 <body class="bg-slate-50 w-full dark:bg-zinc-900">
   <nav id="nav-principal">
-    <span class="title">{{title}}</span>
+
+    <a class="title" routerLink="/">
+      <img src="../assets/icon-recicladora.png" alt="recicladora">{{title}}
+    </a>
     <div>
-      <a routerLink="/usuario">Usuario</a>
-      <a routerLink="/hogar">Hogar</a>
-      <a routerLink="/material">Material</a>
-      <a routerLink="/empresa">Empresa</a>
-      <a routerLink="/ruta">Ruta</a>
+      <a class="route" routerLink="/usuario">Usuario</a>
+      <a class="route" routerLink="/hogar">Hogar</a>
+      <a class="route" routerLink="/material">Material</a>
+      <a class="route" routerLink="/empresa">Empresa</a>
+      <a class="route" routerLink="/ruta">Ruta</a>
     </div>
     <button (click)="darkMode.set(!darkMode())" (click)="toogleAnim()" class="rounded-full border-0 cursor-pointer bg-center flex justify-center items-center">
       <mat-icon [ngClass]="{'rotation' : isAnim, 'noRot':!isAnim}">{{ darkMode() ? 'brightness_4' : 'brightness_7' }}</mat-icon>

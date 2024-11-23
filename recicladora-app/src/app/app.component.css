@@ -1,13 +1,24 @@
 .title{
   color: #ffffff;
   font-weight: bold;
+  text-decoration: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title img{
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
 }
 
 nav{
   background-color: black;
 }
 
-a{
+a.route{
   display: inline-block;
   color: white;
   font-weight: bold;
@@ -19,7 +30,7 @@ a{
   background: linear-gradient(to right, black 100%, white 100%);
 }
 
-a:hover{
+a.route:hover{
   color: black;
   background: linear-gradient(to right, black 0%, white 0%);
   animation: gradientAnimation .15s ease;

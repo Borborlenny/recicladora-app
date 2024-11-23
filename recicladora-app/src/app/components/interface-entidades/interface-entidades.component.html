@@ -1,0 +1,135 @@
+<body class="bg-slate-50 dark:bg-zinc-900 h-full">
+    <!-- Cartas de Usuarios -->
+  <div class="container-title">
+    <h3 class="text-black dark:text-white">{{titleUsuario}}</h3>
+  </div>
+
+  @if (usuarios.length === 0) {
+    <p>No hay usuarios para mostrar.</p>
+  }
+  @else {
+    @for (usuario of usuarios; track usuario.id) {
+
+      <mat-card appearance="outlined" class="pelicula-card">
+        <mat-card-header>
+          <mat-card-title>{{usuario.nombre | uppercase}}</mat-card-title>
+          <mat-card-subtitle>{{usuario.email}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>Rol: {{usuario.rol}}</p>
+        <p>Estado: {{usuario.estado?'Activo':'Inactivo'}}</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  }
+
+  <!-- Cartas de Hogares -->
+  <div class="container-title">
+    <h3 class="text-black dark:text-white">{{titleHogar}}</h3>
+  </div>
+
+  @if (hogares.length === 0) {
+    <p>No hay hogares para mostrar.</p>
+  }
+  @else {
+    @for (hogar of hogares; track hogar.id) {
+
+      <mat-card appearance="outlined" class="pelicula-card">
+        <mat-card-header>
+          <mat-card-title>{{hogar.nombre | uppercase}}</mat-card-title>
+          <mat-card-subtitle>{{hogar.tipo_vivienda}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>Dirección: {{hogar.direccion}}</p>
+          <p>Referencia: {{hogar.referencia}}</p>
+          <p>Telefono: {{hogar.telefono}}</p>
+          <p>Email: {{hogar.email}}</p>
+          <p>Fecha de Registro: {{hogar.fecha_registro}}</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  }
+
+  <!-- Cartas de Materiales -->
+  <div class="container-title">
+    <h3 class="text-black dark:text-white">{{titleMaterial}}</h3>
+  </div>
+
+  @if (materiales.length === 0) {
+    <p>No hay materiales para mostrar.</p>
+  }
+  @else {
+    @for (material of materiales; track material.id) {
+
+      <mat-card appearance="outlined" class="pelicula-card">
+        <mat-card-header>
+          <mat-card-title>{{material.tipo_material | uppercase}}</mat-card-title>
+          <mat-card-subtitle>{{material.peso_promedio}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>Cantidad Promedio: {{material.cantidad_promedio}}</p>
+        <p>Reciclable: {{material.reciclable?'Sí':'No'}}</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  }
+
+  <!-- Cartas de Empresa -->
+  <div class="container-title">
+    <h3 class="text-black dark:text-white">{{titleUsuario}}</h3>
+  </div>
+
+  @if (empresas.length === 0) {
+    <p>No hay empresas para mostrar.</p>
+  }
+  @else {
+    @for (empresa of empresas; track empresa.id) {
+
+      <mat-card appearance="outlined" class="pelicula-card">
+        <mat-card-header>
+          <mat-card-title>{{empresa.nombre_empresa | uppercase}}</mat-card-title>
+          <mat-card-subtitle>{{empresa.tipo_empressa}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>Telefono: {{empresa.telefono}}</p>
+          <p>Dirección: {{empresa.direccion}}</p>
+          <p>Email: {{empresa.email}}</p>
+          <p>Tiene Convenio activo: {{empresa.convenio_activo?'Activo':'Inactivo'}}</p>
+          <p>Materiales Reciclables: {{empresa.materiales_reciclables}}</p>
+          <p>Fecha de Registro: {{empresa.fecha_registro}}</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  }
+
+  <!-- Cartas de Rutas -->
+  <div class="container-title">
+    <h3 class="text-black dark:text-white">{{titleUsuario}}</h3>
+  </div>
+
+  @if (rutas.length === 0) {
+    <p>No hay rutas para mostrar.</p>
+  }
+  @else {
+    @for (ruta of rutas; track ruta.id) {
+
+      <mat-card appearance="outlined" class="pelicula-card">
+        <mat-card-header>
+          <mat-card-title>{{ruta.origen | uppercase}} - {{ruta.destino | uppercase}}</mat-card-title>
+          <mat-card-subtitle>{{ruta.distancia}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>Duración: {{ruta.duracion}}</p>
+          <p>Estado: {{ruta.estado?'Activo':'Inactivo'}}</p>
+          <p>Tiene Alta prioridad: {{ruta.alta_prioridad?'Sí':'No'}}</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  }
+
+</body>

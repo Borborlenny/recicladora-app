@@ -55,15 +55,15 @@
   ],
   "empresa": [
     {
-      "id": "1",
       "nombre_empresa": "Recicladora S.A",
       "tipo_empressa": "mediana",
       "telefono": "04-3878522",
       "direccion": "Avenida Principal 456, Barrio Norte",
       "email": "jose.gomez@example.com",
-      "convenio_activo": true,
+      "convenio_activo": false,
       "materiales_reciclables": "plastico",
-      "fecha_registro": "15-Noviembre-2024"
+      "fecha_registro": "15-Noviembre-2024",
+      "id": "1"
     },
     {
       "id": "2",
@@ -79,22 +79,22 @@
   ],
   "ruta": [
     {
-      "id": "1",
       "origen": "Punto de recoleccion 1",
       "destino": "Fundacion",
       "distancia": "10km",
       "duracion": "20min",
-      "estado": "en espera",
-      "alta_prioridad": true
+      "estado": "En espera",
+      "alta_prioridad": true,
+      "id": "1"
     },
     {
-      "id": "2",
       "origen": "Punto de recoleccion 2",
       "destino": "Fundacion",
       "distancia": "25km",
       "duracion": "45min",
-      "estado": "en espera",
-      "alta_prioridad": false
+      "estado": "Cancelado",
+      "alta_prioridad": false,
+      "id": "2"
     }
   ]
 }
