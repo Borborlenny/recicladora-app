@@ -1,100 +1,192 @@
 {
-  "usuario": [
-    {
-      "nombre": "Juan",
-      "email": "juanalvarez@gmail.com",
-      "rol": "admin",
-      "estado": true,
-      "id": "1"
-    },
-    {
-      "id": "2",
-      "nombre": "Pablo",
-      "email": "pablorodriguez@hotmail.com",
-      "rol": "hogar",
-      "estado": false
-    }
-  ],
-  "hogar": [
-    {
-      "id": "1",
-      "nombre": "Carlos",
-      "tipo_vivienda": "departamento",
-      "direccion": "Calle 123, Ciudad Centra",
-      "referencia": "departamento esquinero, frente a pollos barcelona",
-      "telefono": "04-3878572",
-      "email": "juan.perez@example.com",
-      "fecha_registro": "15-Noviembre-2024"
-    },
-    {
-      "id": "2",
-      "nombre": "María",
-      "tipo_vivienda": "casa",
-      "direccion": "Avenida Principal 456, Barrio Norte",
-      "referencia": "casa esquinera, frente a papeleria JuanMarcet",
-      "telefono": "04-3878522",
-      "email": "maria.gomez@example.com",
-      "fecha_registro": "15-Noviembre-2024"
-    }
-  ],
-  "material": [
-    {
-      "id": "1",
-      "tipo_material": "carton",
-      "peso_promedio": "5kg",
-      "cantidad_promedio": "10",
-      "reciclable": true
-    },
-    {
-      "id": "2",
-      "tipo_material": "vidrio",
-      "peso_promedio": "3.5kg",
-      "cantidad_promedio": "2",
-      "reciclable": false
-    }
-  ],
-  "empresa": [
-    {
-      "nombre_empresa": "Recicladora S.A",
-      "tipo_empressa": "mediana",
-      "telefono": "04-3878522",
-      "direccion": "Avenida Principal 456, Barrio Norte",
-      "email": "jose.gomez@example.com",
-      "convenio_activo": false,
-      "materiales_reciclables": "plastico",
-      "fecha_registro": "15-Noviembre-2024",
-      "id": "1"
-    },
-    {
-      "id": "2",
-      "nombre_empresa": "Urvaseo S.A",
-      "tipo_empressa": "grande",
-      "telefono": "04-3878544",
-      "direccion": "Avenida Principal 456, Barrio Sur",
-      "email": "jose.quinrero@example.com",
-      "convenio_activo": true,
-      "materiales_reciclables": "papel",
-      "fecha_registro": "15-Noviembre-2023"
-    }
-  ],
-  "ruta": [
-    {
-      "origen": "Punto de recoleccion 1",
-      "destino": "Fundacion",
-      "distancia": "10km",
-      "duracion": "20min",
-      "estado": "En espera",
-      "alta_prioridad": true,
-      "id": "1"
-    },
-    {
-      "origen": "Punto de recoleccion 2",
-      "destino": "Fundacion",
-      "distancia": "25km",
-      "duracion": "45min",
-      "estado": "Cancelado",
-      "alta_prioridad": false,
-      "id": "2"
-    }
-  ]
-}
+    "usuario": [
+      {
+        "nombre": "Juan",
+        "email": "juanalvarez@gmail.com",
+        "rol": "admin",
+        "estado": true,
+        "id": "1"
+      },
+      {
+        "id": "2",
+        "nombre": "Pablo",
+        "email": "pablorodriguez@hotmail.com",
+        "rol": "hogar",
+        "estado": false
+      },
+      {
+        "nombre": "Lenny",
+        "email": "lenny23@gmail.com",
+        "rol": "empresa",
+        "estado": false,
+        "id": "3b04"
+      },
+      {
+        "id": "42bf",
+        "nombre": "Saul",
+        "email": "saulin1@example.com",
+        "rol": "empresa",
+        "estado": true
+      },
+      {
+        "id": "4b10",
+        "nombre": "lennoncio",
+        "email": "lennoncio12@example.com",
+        "rol": "empresa",
+        "estado": ""
+      }
+    ],
+    "hogar": [
+      {
+        "id": "1",
+        "nombre": "Carlos",
+        "tipo_vivienda": "departamento",
+        "direccion": "Calle 123, Ciudad Centra",
+        "referencia": "departamento esquinero, frente a pollos barcelona",
+        "telefono": "04-3878572",
+        "email": "juan.perez@example.com",
+        "fecha_registro": "15-Noviembre-2024"
+      },
+      {
+        "nombre": "María",
+        "tipo_vivienda": "casa",
+        "direccion": "Avenida Principal 456, Barrio Norte",
+        "referencia": "casa esquinera, frente a papeleria JuanMarcet",
+        "telefono": "04-3878521",
+        "email": "maria.gomez@example.com",
+        "fecha_registro": "15-Noviembre-2024",
+        "id": "2"
+      },
+      {
+        "nombre": "Saul",
+        "tipo_vivienda": "departamento",
+        "direccion": "Urdesa central",
+        "referencia": "frente a tuti",
+        "telefono": "0999999999",
+        "email": "sauk1@gmail.com",
+        "fecha_registro": "2024-11-23T20:17:26.714Z",
+        "id": "e7db"
+      }
+    ],
+    "material": [
+      {
+        "id": "1",
+        "tipo_material": "carton",
+        "peso_promedio": "5kg",
+        "cantidad_promedio": "10",
+        "reciclable": true
+      },
+      {
+        "id": "2",
+        "tipo_material": "vidrio",
+        "peso_promedio": "3.5kg",
+        "cantidad_promedio": "2",
+        "reciclable": false
+      },
+      {
+        "id": "5044",
+        "tipo_material": "carton",
+        "peso_promedio": "1.5kg",
+        "cantidad_promedio": "5",
+        "reciclable": true
+      },
+      {
+        "id": "dc60",
+        "tipo_material": "carton",
+        "peso_promedio": "25kg",
+        "cantidad_promedio": "25",
+        "reciclable": false
+      },
+      {
+        "id": "34ec",
+        "tipo_material": "vidrio",
+        "peso_promedio": "1.5kg",
+        "cantidad_promedio": "2",
+        "reciclable": ""
+      }
+    ],
+    "empresa": [
+      {
+        "nombre_empresa": "Recicladora S.A",
+        "tipo_empressa": "mediana",
+        "telefono": "04-3878522",
+        "direccion": "Avenida Principal 456, Barrio Norte",
+        "email": "jose.gomez@example.com",
+        "convenio_activo": false,
+        "materiales_reciclables": "plastico",
+        "fecha_registro": "15-Noviembre-2024",
+        "id": "1"
+      },
+      {
+        "id": "2",
+        "nombre_empresa": "Urvaseo S.A",
+        "tipo_empressa": "grande",
+        "telefono": "04-3878544",
+        "direccion": "Avenida Principal 456, Barrio Sur",
+        "email": "jose.quinrero@example.com",
+        "convenio_activo": true,
+        "materiales_reciclables": "papel",
+        "fecha_registro": "15-Noviembre-2023"
+      },
+      {
+        "id": "6bc9",
+        "nombre_empresa": "aaaaaa",
+        "tipo_empressa": "mediana",
+        "telefono": "0999999999",
+        "direccion": "aaaaaaaaaa",
+        "email": "a@gmail.com",
+        "convenio_activo": null,
+        "materiales_reciclables": "papel",
+        "fecha_registro": "2024-11-23T21:06:12.033Z"
+      },
+      {
+        "id": "fd44",
+        "nombre_empresa": "aaaaaaaaaaaaaaaa",
+        "tipo_empressa": "mediana",
+        "telefono": "0999999999",
+        "direccion": "aaaaaaaaaaaaa",
+        "email": "a@gmail.com",
+        "convenio_activo": null,
+        "materiales_reciclables": "papel",
+        "fecha_registro": "2024-11-23T21:15:20.787Z"
+      }
+    ],
+    "ruta": [
+      {
+        "origen": "Punto de recoleccion 1",
+        "destino": "Fundacion",
+        "distancia": "10km",
+        "duracion": "20min",
+        "estado": "En espera",
+        "alta_prioridad": true,
+        "id": "1"
+      },
+      {
+        "origen": "Punto de recoleccion 2",
+        "destino": "Fundacion",
+        "distancia": "25km",
+        "duracion": "45min",
+        "estado": "Completado",
+        "alta_prioridad": false,
+        "id": "2"
+      },
+      {
+        "id": "2f9e",
+        "origen": "Punto de recoleccion 1",
+        "destino": "Fundacion",
+        "distancia": "10000m",
+        "duracion": "15hrs",
+        "estado": "En espera",
+        "alta_prioridad": true
+      },
+      {
+        "id": "9b14",
+        "origen": "Punto de recoleccion 1",
+        "destino": "Fundacion",
+        "distancia": "200m",
+        "duracion": "3hrs",
+        "estado": "Completado",
+        "alta_prioridad": ""
+      }
+    ]
+  }
