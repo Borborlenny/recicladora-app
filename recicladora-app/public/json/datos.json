@@ -1,13 +1,6 @@
 {
   "usuario": [
     {
-      "nombre": "Juan",
-      "email": "juanalvarez@gmail.com",
-      "rol": "admin",
-      "estado": true,
-      "id": "1"
-    },
-    {
       "id": "2",
       "nombre": "Pablo",
       "email": "pablorodriguez@hotmail.com",

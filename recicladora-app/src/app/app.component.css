@@ -6,6 +6,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: text-shadow 0.2s ease-in-out;
+}
+
+.title:hover{
+  text-shadow: 0 0 10px #ffffff, 0 0 15px #ffffff80, 0 0 20px #ffffff20;
 }
 
 .title img{

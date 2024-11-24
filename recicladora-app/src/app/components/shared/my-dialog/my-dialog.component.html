@@ -1,0 +1,7 @@
+<h2 mat-dialog-title>{{data.titulo}}</h2>
+<mat-dialog-content>{{data.contenido}}</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="bg-white shadow hover:bg-red-500 text-blue-500 hover:text-white font-bold rounded-full h-10 w-20 border-none ml-1 mr-1 cursor-pointer" mat-button (click)="onAceptar()" color="accent" >Aceptar</button>
+  <button class="bg-white shadow hover:bg-slate-100 font-bold text-blue-500 rounded-full h-10 w-20 border-none ml-1 mr-1 cursor-pointer" mat-button mat-dialog-close (click)="onCancelar()" color="warn">Cancelar</button>
+</mat-dialog-actions>

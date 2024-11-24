@@ -1,6 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { MaterialJsonService } from '../../services/material-json.service';
-import { Material } from '../../models/Material';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -11,6 +9,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { DialogData, MyDialogComponent } from '../../shared/my-dialog/my-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Material } from '../../../models/Material';
+import { MaterialJsonService } from '../../../services/material-json.service';
 
 @Component({
   selector: 'app-crud-material',
@@ -39,7 +41,7 @@ export class CrudMaterialComponent {
     this.dataSource.paginator= this.paginador
   }
 
-  constructor(private materialService: MaterialJsonService, private fb: FormBuilder){
+  constructor(private materialService: MaterialJsonService, private fb: FormBuilder, private mydialog: MatDialog){
 
   }
 
@@ -109,9 +111,24 @@ export class CrudMaterialComponent {
   }
 
   eliminar(material:Material){
-    this.materialService.eliminarMaterial(material).subscribe(()=>{
-      alert("Eliminado exitosamente.")
-      this.obtenerMateriales();
+
+    const dialogRef = this.mydialog.open(MyDialogComponent,{
+      data:{
+        titulo: "Eliminación de Material",
+        contenido: "¿Estas seguro de eliminar el material de "+material.tipo_material+"?"
+      }as DialogData,
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result==='Aceptar'){
+        this.materialService.eliminarMaterial(material).subscribe(()=>{
+          alert("Eliminado exitosamente.")
+          this.obtenerMateriales();
+        })
+      }
+      else if(result==='Cancelar'){
+
+      }
     })
   }
 

@@ -1,6 +1,4 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {UsuarioJsonService} from '../../services/usuario-json.service';
-import {Usuario} from '../../models/Usuario';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms'
 import {MatTableDataSource} from '@angular/material/table'
 import {MatPaginator} from '@angular/material/paginator';
@@ -13,6 +11,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { DialogData, MyDialogComponent } from '../../shared/my-dialog/my-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Usuario } from '../../../models/Usuario';
+import { UsuarioJsonService } from '../../../services/usuario-json.service';
 
 @Component({
   selector: 'app-crud-usuario',
@@ -41,7 +43,7 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
     this.dataSource.paginator= this.paginador
   }
 
-  constructor(private usuarioService: UsuarioJsonService, private fb: FormBuilder){
+  constructor(private usuarioService: UsuarioJsonService, private fb: FormBuilder, private mydialog: MatDialog){
 
   }
 
@@ -111,9 +113,24 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
   }
 
   eliminar(usuario:Usuario){
-    this.usuarioService.eliminarUsuario(usuario).subscribe(()=>{
-      alert("Eliminado exitosamente.")
-      this.obtenerUsuarios();
+
+    const dialogRef = this.mydialog.open(MyDialogComponent,{
+      data:{
+        titulo: "Eliminación de Usuario",
+        contenido: "¿Estas seguro de eliminar el usuario "+usuario.nombre+"?"
+      }as DialogData,
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result==='Aceptar'){
+        this.usuarioService.eliminarUsuario(usuario).subscribe(()=>{
+          alert("Eliminado exitosamente.")
+          this.obtenerUsuarios();
+        })
+      }
+      else if(result==='Cancelar'){
+
+      }
     })
   }
 
@@ -134,4 +151,5 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
       estado: usuario.estado
     })
   }
+
 }

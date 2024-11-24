@@ -1,6 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { RutaJsonService } from '../../services/ruta-json.service';
-import { Ruta } from '../../models/Ruta';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -10,6 +8,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogData, MyDialogComponent } from '../../shared/my-dialog/my-dialog.component';
+import { Ruta } from '../../../models/Ruta';
+import { RutaJsonService } from '../../../services/ruta-json.service';
 
 @Component({
   selector: 'app-crud-ruta',
@@ -38,7 +40,7 @@ export class CrudRutaComponent {
     this.dataSource.paginator= this.paginador
   }
 
-  constructor(private rutaService: RutaJsonService, private fb: FormBuilder){
+  constructor(private rutaService: RutaJsonService, private fb: FormBuilder, private mydialog: MatDialog){
 
   }
 
@@ -112,9 +114,23 @@ export class CrudRutaComponent {
   }
 
   eliminar(ruta:Ruta){
-    this.rutaService.eliminarRuta(ruta).subscribe(()=>{
-      alert("Eliminado exitosamente.")
-      this.obtenerRutas();
+
+    const dialogRef = this.mydialog.open(MyDialogComponent,{
+      data:{
+        titulo: "Eliminación de Ruta",
+        contenido: "¿Estas seguro de eliminar la ruta con origen en '"+ruta.origen+"' y con destino a '"+ruta.destino+"'?"
+      }as DialogData,
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result==='Aceptar'){
+        this.rutaService.eliminarRuta(ruta).subscribe(()=>{
+          alert("Eliminado exitosamente.")
+          this.obtenerRutas();
+        })
+      }
+      else if(result==='Cancelar'){
+      }
     })
   }
 

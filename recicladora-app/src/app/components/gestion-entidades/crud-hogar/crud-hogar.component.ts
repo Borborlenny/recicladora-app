@@ -1,7 +1,5 @@
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Component, ViewChild } from '@angular/core';
-import { HogarJsonService } from '../../services/hogar-json.service';
-import { Hogar } from '../../models/Hogar';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -12,6 +10,10 @@ import { MatSelect } from '@angular/material/select';
 import { CommonModule, DatePipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { DialogData, MyDialogComponent } from '../../shared/my-dialog/my-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { HogarJsonService } from '../../../services/hogar-json.service';
+import { Hogar } from '../../../models/Hogar';
 
 
 @Component({
@@ -45,7 +47,7 @@ export class CrudHogarComponent {
       this.dataSource.paginator= this.paginador
     }
 
-    constructor(private hogarService: HogarJsonService, private fb: FormBuilder){
+    constructor(private hogarService: HogarJsonService, private fb: FormBuilder, private mydialog: MatDialog){
 
     }
 
@@ -121,9 +123,24 @@ export class CrudHogarComponent {
     }
 
     eliminar(hogar:Hogar){
-      this.hogarService.eliminarHogar(hogar).subscribe(()=>{
-        alert("Eliminado exitosamente.")
-        this.obtenerHogares();
+
+      const dialogRef = this.mydialog.open(MyDialogComponent,{
+        data:{
+          titulo: "Eliminación de Hogar",
+          contenido: "¿Estas seguro de eliminar el hogar de "+hogar.nombre+"?"
+        }as DialogData,
+      })
+
+      dialogRef.afterClosed().subscribe(result => {
+        if(result==='Aceptar'){
+          this.hogarService.eliminarHogar(hogar).subscribe(()=>{
+            alert("Eliminado exitosamente.")
+            this.obtenerHogares();
+          })
+        }
+        else if(result==='Cancelar'){
+
+        }
       })
     }
 

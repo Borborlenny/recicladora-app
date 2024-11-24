@@ -1,6 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { EmpresaJsonService } from '../../services/empresa-json.service';
-import { Empresa } from '../../models/Empresa';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -11,6 +9,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { Empresa } from '../../../models/Empresa';
+import { EmpresaJsonService } from '../../../services/empresa-json.service';
+import { DialogData, MyDialogComponent } from '../../shared/my-dialog/my-dialog.component';
 
 @Component({
   selector: 'app-crud-empresa',
@@ -39,7 +41,7 @@ export class CrudEmpresaComponent {
     this.dataSource.paginator= this.paginador
   }
 
-  constructor(private empresaService: EmpresaJsonService, private fb: FormBuilder){
+  constructor(private empresaService: EmpresaJsonService, private fb: FormBuilder, private mydialog: MatDialog){
 
   }
 
@@ -117,9 +119,24 @@ export class CrudEmpresaComponent {
   }
 
   eliminar(empresa:Empresa){
-    this.empresaService.eliminarEmpresa(empresa).subscribe(()=>{
-      alert("Eliminado exitosamente.")
-      this.obtenerEmpresa();
+
+    const dialogRef = this.mydialog.open(MyDialogComponent,{
+      data:{
+        titulo: "Eliminación de Empresa",
+        contenido: "¿Estas seguro de eliminar la empresa "+empresa.nombre_empresa+"?"
+      }as DialogData,
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result==='Aceptar'){
+        this.empresaService.eliminarEmpresa(empresa).subscribe(()=>{
+          alert("Eliminado exitosamente.")
+          this.obtenerEmpresa();
+        })
+      }
+      else if(result==='Cancelar'){
+
+      }
     })
   }
 
