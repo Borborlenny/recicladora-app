@@ -18,10 +18,10 @@ El objetivo de esta plataforma es mejorar la eficiencia en la recolección de ma
 
 ## 👨‍🦰🚀 Integrantes
 
-- Lenny borbor (**Lider**)
-- Saúl Maldonado
-- Andy Romero 
-- Mariana Yagual
-- Anthony López
+- Borbor Sanchez Lenny Josue (**Lider**)
+- Maldonado Lopez Saul Alejandro
+- Romero Diaz Andy Adrian
+- Yagual Alarcon Mariana De Jesus
+- Lopez Rodriguez Anthony Elias
 
 Contribuye a la sostenibilidad y haz tu parte para un futuro más verde. 🌱♻️
