@@ -1,0 +1,34 @@
+<body class="bg-slate-50 dark:bg-zinc-900 h-full">
+  <nav id="nav-principal">
+    <div>
+      <a class="route" routerLink="/ruta/gestion-ruta">Gestión de Ruta</a>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+
+  <div class="container-title">
+      <h3 class="text-black dark:text-white">{{titleRuta}}</h3>
+    </div>
+
+    @if (rutas.length === 0) {
+      <p>No hay rutas para mostrar.</p>
+    }
+    @else {
+      @for (ruta of rutas; track ruta.id) {
+
+        <mat-card appearance="outlined" class="pelicula-card">
+          <mat-card-header>
+            <mat-card-title>{{ruta.origen | uppercase}} - {{ruta.destino | uppercase}}</mat-card-title>
+            <mat-card-subtitle>{{ruta.distancia}}</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p>Duración: {{ruta.duracion}}</p>
+            <p>Estado: {{ruta.estado?'Activo':'Inactivo'}}</p>
+            <p>Tiene Alta prioridad: {{ruta.alta_prioridad?'Sí':'No'}}</p>
+          </mat-card-content>
+        </mat-card>
+      }
+    }
+
+</body>

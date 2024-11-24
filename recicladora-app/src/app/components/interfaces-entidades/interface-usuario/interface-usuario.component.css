@@ -1,0 +1,97 @@
+.container-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .usuario{
+    border: 2px solid gray;
+    border-radius: 2%;
+    padding: 1rem;
+    margin: 1rem;
+    display: inline-block;
+  }
+
+  .usuario img{
+    border-radius: 10%;
+    width: 170px;
+    height: 200px;
+  }
+
+  .pelicula-card{
+    display: inline-block;
+    margin: 2px 10px;
+  }
+
+  a.route{
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1.5px solid white;
+    margin: 8px 8px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    background: linear-gradient(to right, black 100%, white 100%);
+    user-select: none;
+    cursor: pointer;
+    border: 2.5px solid black;
+  }
+
+  a.route:hover{
+    color: black;
+    background: linear-gradient(to right, black 0%, white 0%);
+    animation: gradientAnimation .15s ease;
+  }
+
+  .anim-gradient{
+    animation: gradientAnimation .15s ease;
+  }
+
+  @keyframes gradientAnimation {
+    0% {
+      background: linear-gradient(to right, black 100%, white 100%);
+      color: #ffffff;
+    }
+    10% {
+      background: linear-gradient(to right, black 90%, white 90%);
+      color: #dddddd;
+    }
+    20% {
+      background: linear-gradient(to right, black 80%, white 80%);
+      color: #cccccc;
+    }
+    30% {
+      background: linear-gradient(to right, black 70%, white 70%);
+      color: #aaaaaa;
+    }
+    40% {
+      background: linear-gradient(to right, black 60%, white 60%);
+      color: #999999;
+    }
+    50% {
+      background: linear-gradient(to right, black 50%, white 50%);
+      color: #888888;
+    }
+    60% {
+      background: linear-gradient(to right, black 40%, white 40%);
+      color: #666666;
+    }
+    70% {
+      background: linear-gradient(to right, black 30%, white 30%);
+      color: #555555;
+    }
+    80% {
+      background: linear-gradient(to right, black 20%, white 20%);
+      color: #444444;
+    }
+    80% {
+      background: linear-gradient(to right, black 10%, white 10%);
+      color: #222222;
+    }
+    100% {
+      background: linear-gradient(to right, black 0%, white 0%);
+      color: #000000;
+    }
+  }

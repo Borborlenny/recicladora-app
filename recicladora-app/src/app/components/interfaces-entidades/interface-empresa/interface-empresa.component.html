@@ -1,0 +1,36 @@
+<body class="bg-slate-50 dark:bg-zinc-900 h-full">
+  <nav id="nav-principal">
+    <div>
+      <a class="route" routerLink="/empresa/gestion-empresa">Gestión de Empresa</a>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+
+  <div class="container-title">
+      <h3 class="text-black dark:text-white">{{titleEmpresa}}</h3>
+    </div>
+
+    @if (empresas.length === 0) {
+      <p>No hay empresas para mostrar.</p>
+    }
+    @else {
+      @for (empresa of empresas; track empresa.id) {
+
+        <mat-card appearance="outlined" class="pelicula-card">
+          <mat-card-header>
+            <mat-card-title>{{empresa.nombre_empresa | uppercase}}</mat-card-title>
+            <mat-card-subtitle>{{empresa.tipo_empressa}}</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p>Telefono: {{empresa.telefono}}</p>
+            <p>Dirección: {{empresa.direccion}}</p>
+            <p>Email: {{empresa.email}}</p>
+            <p>Tiene Convenio activo: {{empresa.convenio_activo?'Activo':'Inactivo'}}</p>
+            <p>Materiales Reciclables: {{empresa.materiales_reciclables}}</p>
+            <p>Fecha de Registro: {{empresa.fecha_registro}}</p>
+          </mat-card-content>
+        </mat-card>
+      }
+    }
+</body>

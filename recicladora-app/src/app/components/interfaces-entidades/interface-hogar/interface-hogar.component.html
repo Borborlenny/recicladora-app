@@ -1,0 +1,35 @@
+<body class="bg-slate-50 dark:bg-zinc-900 h-full">
+  <nav id="nav-principal">
+    <div>
+      <a class="route" routerLink="/hogar/gestion-hogar">Gestión de Hogar</a>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+
+  <div class="container-title">
+      <h3 class="text-black dark:text-white">{{titleHogar}}</h3>
+    </div>
+
+    @if (hogares.length === 0) {
+      <p>No hay hogares para mostrar.</p>
+    }
+    @else {
+      @for (hogar of hogares; track hogar.id) {
+
+        <mat-card appearance="outlined" class="pelicula-card">
+          <mat-card-header>
+            <mat-card-title>{{hogar.nombre | uppercase}}</mat-card-title>
+            <mat-card-subtitle>{{hogar.tipo_vivienda}}</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p>Dirección: {{hogar.direccion}}</p>
+            <p>Referencia: {{hogar.referencia}}</p>
+            <p>Telefono: {{hogar.telefono}}</p>
+            <p>Email: {{hogar.email}}</p>
+            <p>Fecha de Registro: {{hogar.fecha_registro}}</p>
+          </mat-card-content>
+        </mat-card>
+      }
+    }
+</body>

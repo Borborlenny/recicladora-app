@@ -1,0 +1,32 @@
+<body class="bg-slate-50 dark:bg-zinc-900 h-full">
+  <nav id="nav-principal">
+    <div>
+      <a class="route" routerLink="/material/gestion-material">Gestión de Material</a>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+
+  <div class="container-title">
+      <h3 class="text-black dark:text-white">{{titleMaterial}}</h3>
+    </div>
+
+    @if (materiales.length === 0) {
+      <p>No hay materiales para mostrar.</p>
+    }
+    @else {
+      @for (material of materiales; track material.id) {
+
+        <mat-card appearance="outlined" class="pelicula-card">
+          <mat-card-header>
+            <mat-card-title>{{material.tipo_material | uppercase}}</mat-card-title>
+            <mat-card-subtitle>{{material.peso_promedio}}</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p>Cantidad Promedio: {{material.cantidad_promedio}}</p>
+          <p>Reciclable: {{material.reciclable?'Sí':'No'}}</p>
+          </mat-card-content>
+        </mat-card>
+      }
+    }
+</body>

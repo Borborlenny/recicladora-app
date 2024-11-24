@@ -1,0 +1,35 @@
+<body class="bg-slate-50 dark:bg-zinc-900 h-full">
+  <nav id="nav-principal">
+    <div>
+      <a class="route" routerLink="/usuario/gestion-usuario">Gestión de Usuario</a>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+
+  <!-- Cartas de Usuarios -->
+  <div class="container-title">
+      <h3 class="text-black dark:text-white">{{titleUsuario}}</h3>
+    </div>
+
+    @if (usuarios.length === 0) {
+      <p>No hay usuarios para mostrar.</p>
+    }
+    @else {
+      @for (usuario of usuarios; track usuario.id) {
+
+        <mat-card appearance="outlined" class="pelicula-card">
+          <mat-card-header>
+            <mat-card-title>{{usuario.nombre | uppercase}}</mat-card-title>
+            <mat-card-subtitle>{{usuario.email}}</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p>Rol: {{usuario.rol}}</p>
+          <p>Estado: {{usuario.estado?'Activo':'Inactivo'}}</p>
+          </mat-card-content>
+        </mat-card>
+      }
+    }
+</body>
+
+

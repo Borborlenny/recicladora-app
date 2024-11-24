@@ -4,6 +4,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { InterfaceUsuarioComponent } from "./components/interfaces-entidades/interface-usuario/interface-usuario.component";
 
 @Component({
   selector: 'app-root',
