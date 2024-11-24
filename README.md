@@ -18,8 +18,8 @@ El objetivo de esta plataforma es mejorar la eficiencia en la recolección de ma
 
 ## 👨‍🦰🚀 Integrantes
 
-- Borbor Sanchez Lenny Josue (**Lider**)
-- Maldonado Lopez Saul Alejandro
+- Maldonado Lopez Saul Alejandro (**Líder**)
+- Borbor Sanchez Lenny Josue
 - Romero Diaz Andy Adrian
 - Yagual Alarcon Mariana De Jesus
 - Lopez Rodriguez Anthony Elias
