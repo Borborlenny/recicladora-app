@@ -13,6 +13,15 @@
           @if(form.get('nombre')?.errors?.['required']){
             <span>Nombre es requerido.</span>
           }
+          @else if (form.get('nombre')?.errors?.['minlength']) {
+            <span>Nombre requiere mínimo 3 carácteres.</span>
+          }
+          @else if (form.get('nombre')?.errors?.['maxlength']) {
+            <span>Nombre requiere máximo 25 carácteres.</span>
+          }
+          @else if (form.get('nombre')?.errors?.['pattern']) {
+            <span>Nombre requiere carácteres no especiales.</span>
+          }
         }
       </mat-error>
     </mat-form-field>
@@ -24,6 +33,9 @@
         @if(form.get('email')?.invalid && form.get('email')?.dirty || form.get('email')?.touched){
           @if(form.get('email')?.errors?.['required']){
             <span>Email es requerido.</span>
+          }
+          @else if (form.get('email')?.errors?.['email']) {
+            <span>Ingrese un Email valido.</span>
           }
         }
       </mat-error>

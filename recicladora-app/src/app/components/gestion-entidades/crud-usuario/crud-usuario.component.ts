@@ -51,10 +51,10 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
     this.obtenerUsuarios()
 
     this.form =this.fb.group({
-      nombre: ["", [Validators.required]],
-      email: ["", [Validators.required]],
+      nombre: ["", [Validators.required, Validators.maxLength(25), Validators.minLength(3), Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/)]],
+      email: ["", [Validators.required, Validators.email]],
       rol: ["", [Validators.required]],
-      estado: ["", [Validators.required]]
+      estado: [""]
     })
   }
 
@@ -83,14 +83,14 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
     //Obtener los datos de los controles del formulario
     const newUsuario: Usuario = this.form.value;
 
-    if(this.isEditMode){ //Actualizar hogar
+    if(this.isEditMode){ //Actualizar Usuario
       newUsuario.id = this.currentId;
       this.usuarioService.actualizarUsuario(newUsuario).subscribe((actualizarUsuario)=>{
         alert("Usuario fue editada exitosamente");
         this.obtenerUsuarios(); //Actualizar el dataSource
       });
     }
-    else{ //Agregar hogar
+    else{ //Agregar Usuario
       this.usuarioService.agregarUsuario(newUsuario).subscribe((agregarUsuario)=>{
         alert("Usuario fue agregada exitosamente");
         this.obtenerUsuarios(); //Actualizar el dataSource

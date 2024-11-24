@@ -28,6 +28,15 @@
           @if(form.get('nombre_empresa')?.errors?.['required']){
             <span>Nombre de Empresa es requerido.</span>
           }
+          @else if (form.get('nombre_empresa')?.errors?.['minlength']) {
+            <span>Nombre de Empresa requiere mínimo 6 carácteres.</span>
+          }
+          @else if (form.get('nombre_empresa')?.errors?.['maxlength']) {
+            <span>Nombre de Empresa requiere máximo 25 carácteres.</span>
+          }
+          @else if (form.get('nombre_empresa')?.errors?.['pattern']) {
+            <span>Nombre de Empresa requiere carácteres no especiales.</span>
+          }
         }
       </mat-error>
     </mat-form-field>
@@ -39,6 +48,15 @@
         @if(form.get('telefono')?.invalid && form.get('telefono')?.dirty || form.get('telefono')?.touched){
           @if(form.get('telefono')?.errors?.['required']){
             <span>Telefono es requerido.</span>
+          }
+          @else if (form.get('telefono')?.errors?.['maxlength']) {
+            <span>Telefono maximo 10 numeros.</span>
+          }
+          @else if (form.get('telefono')?.errors?.['minlength']) {
+            <span>Telefono minimo 10 numeros.</span>
+          }
+          @else if (form.get('telefono')?.errors?.['pattern']) {
+            <span>Telefono solo acepta números.</span>
           }
         }
       </mat-error>
@@ -63,6 +81,9 @@
         @if(form.get('email')?.invalid && form.get('email')?.dirty || form.get('email')?.touched){
           @if(form.get('email')?.errors?.['required']){
             <span>Email es requerido.</span>
+          }
+          @else if (form.get('email')?.errors?.['email']) {
+            <span>Ingrese un Email valido.</span>
           }
         }
       </mat-error>

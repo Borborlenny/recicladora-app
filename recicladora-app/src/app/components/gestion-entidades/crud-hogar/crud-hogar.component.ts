@@ -55,13 +55,13 @@ export class CrudHogarComponent {
       this.obtenerHogares()
 
       this.form =this.fb.group({
-        nombre: ["", [Validators.required]],
+        nombre: ["", [Validators.required, Validators.maxLength(25), Validators.minLength(3), Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/)]],
         tipo_vivienda:["", [Validators.required]],
         direccion:["",[Validators.required]],
         referencia:[""],
-        telefono:["",[Validators.required]],
-        email: ["", [Validators.required]],
-        fecha_registro:["", [Validators.required]]
+        telefono:["",[Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern(/^[0-9]+$/)]],
+        email: ["", [Validators.required, Validators.email]],
+        fecha_registro:[new Date().toISOString()]
       })
     }
 
@@ -84,6 +84,7 @@ export class CrudHogarComponent {
 
     onSubmit(){
       if(this.form.invalid){
+        console.log("informacion invalida")
         return;
       }
 
@@ -100,6 +101,7 @@ export class CrudHogarComponent {
       else{ //Agregar hogar
         this.hogarService.agregarHogar(newHogar).subscribe((agregarHogar)=>{
           alert("Hogar fue agregada exitosamente");
+          console.log(newHogar)
           this.obtenerHogares(); //Actualizar el dataSource
         });
       }

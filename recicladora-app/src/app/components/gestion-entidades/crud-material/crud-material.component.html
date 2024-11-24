@@ -20,7 +20,7 @@
         }
       </mat-error>
     </mat-form-field>
-   
+
     <mat-form-field appearance="outline" class="formElement">
       <mat-label class="text-black dark:text-white">Peso promedio:</mat-label>
       <input matInput type="email" placeholder="Peso promedio" formControlName="peso_promedio">
@@ -33,7 +33,7 @@
       </mat-error>
     </mat-form-field>
 
- 
+
     <mat-form-field appearance="outline" class="formElement">
       <mat-label class="text-black dark:text-white">Cantidad Promedio:</mat-label>
       <input matInput type="text" placeholder="Cantidad Promedio" formControlName="cantidad_promedio">
@@ -41,6 +41,9 @@
         @if(form.get('cantidad_promedio')?.invalid && form.get('cantidad_promedio')?.dirty || form.get('cantidad_promedio')?.touched){
           @if(form.get('cantidad_promedio')?.errors?.['required']){
             <span>Cantidad Promedio es requerido.</span>
+          }
+          @else if (form.get('cantidad_promedio')?.errors?.['pattern']) {
+            <span> Cantidad sobrepasada.</span>
           }
         }
       </mat-error>

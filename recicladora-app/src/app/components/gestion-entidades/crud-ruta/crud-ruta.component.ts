@@ -53,7 +53,7 @@ export class CrudRutaComponent {
       distancia: ["", [Validators.required]],
       duracion: ["", [Validators.required]],
       estado: ["", [Validators.required]],
-      alta_prioridad: ["", [Validators.required]]
+      alta_prioridad: [""]
     })
   }
 
@@ -118,7 +118,7 @@ export class CrudRutaComponent {
     const dialogRef = this.mydialog.open(MyDialogComponent,{
       data:{
         titulo: "Eliminación de Ruta",
-        contenido: "¿Estas seguro de eliminar la ruta con origen en '"+ruta.origen+"' y con destino a '"+ruta.destino+"'?"
+        contenido: "¿Estas seguro de eliminar la ruta con origen en '"+ruta.origen+"' y con destino en "+ruta.destino+" ?"
       }as DialogData,
     })
 
@@ -130,6 +130,7 @@ export class CrudRutaComponent {
         })
       }
       else if(result==='Cancelar'){
+
       }
     })
   }
