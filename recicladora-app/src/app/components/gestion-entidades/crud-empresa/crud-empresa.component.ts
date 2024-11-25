@@ -49,7 +49,7 @@ export class CrudEmpresaComponent {
     this.obtenerEmpresa()
 
     this.form =this.fb.group({
-      nombre_empresa: ["", [Validators.required, Validators.maxLength(25), Validators.minLength(6), Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/)]],
+      nombre_empresa: ["", [Validators.required, Validators.maxLength(25), Validators.minLength(6), Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ. ]+$/)]],
       tipo_empressa: ["", [Validators.required]],
       telefono: ["",[Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern(/^[0-9]+$/)]],
       direccion: ["", [Validators.required]],

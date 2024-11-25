@@ -51,7 +51,7 @@ export class CrudMaterialComponent {
     this.form =this.fb.group({
       tipo_material: ["", [Validators.required]],
       peso_promedio: ["", [Validators.required]],
-      cantidad_promedio: ["", [Validators.required, Validators.pattern(/^[0-5]+%/)]],
+      cantidad_promedio: ["", [Validators.required, Validators.min(0)]],
       reciclable: [[]]
     })
   }

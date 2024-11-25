@@ -42,8 +42,8 @@
           @if(form.get('cantidad_promedio')?.errors?.['required']){
             <span>Cantidad Promedio es requerido.</span>
           }
-          @else if (form.get('cantidad_promedio')?.errors?.['pattern']) {
-            <span> Cantidad sobrepasada.</span>
+          @else if (form.get('cantidad_promedio')?.errors?.['min']) {
+            <span> La cantidad mínima es 0.</span>
           }
         }
       </mat-error>

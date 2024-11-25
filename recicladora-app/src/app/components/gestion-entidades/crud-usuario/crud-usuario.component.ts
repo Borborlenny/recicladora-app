@@ -77,6 +77,7 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
 
   onSubmit(){
     if(this.form.invalid){
+      console.log("es invalido")
       return;
     }
 

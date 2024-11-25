@@ -1,42 +1,42 @@
 {
   "usuario": [
     {
-      "id": "2",
       "nombre": "Pablo",
       "email": "pablorodriguez@hotmail.com",
-      "rol": "hogar",
-      "estado": false
+      "rol": "admin",
+      "estado": false,
+      "id": "2"
     }
   ],
   "hogar": [
     {
-      "id": "1",
       "nombre": "Carlos",
-      "tipo_vivienda": "departamento",
+      "tipo_vivienda": "casa",
       "direccion": "Calle 123, Ciudad Centra",
       "referencia": "departamento esquinero, frente a pollos barcelona",
-      "telefono": "04-3878572",
+      "telefono": "0438785727",
       "email": "juan.perez@example.com",
-      "fecha_registro": "15-Noviembre-2024"
+      "fecha_registro": "15-Noviembre-2024",
+      "id": "1"
     },
     {
-      "id": "2",
       "nombre": "María",
       "tipo_vivienda": "casa",
       "direccion": "Avenida Principal 456, Barrio Norte",
       "referencia": "casa esquinera, frente a papeleria JuanMarcet",
-      "telefono": "04-3878522",
+      "telefono": "0453878522",
       "email": "maria.gomez@example.com",
-      "fecha_registro": "15-Noviembre-2024"
+      "fecha_registro": "15-Noviembre-2024",
+      "id": "2"
     }
   ],
   "material": [
     {
-      "id": "1",
       "tipo_material": "carton",
       "peso_promedio": "5kg",
-      "cantidad_promedio": "10",
-      "reciclable": true
+      "cantidad_promedio": "4",
+      "reciclable": true,
+      "id": "1"
     },
     {
       "id": "2",
@@ -50,7 +50,7 @@
     {
       "nombre_empresa": "Recicladora S.A",
       "tipo_empressa": "mediana",
-      "telefono": "04-3878522",
+      "telefono": "0443878522",
       "direccion": "Avenida Principal 456, Barrio Norte",
       "email": "jose.gomez@example.com",
       "convenio_activo": false,
@@ -73,7 +73,7 @@
   "ruta": [
     {
       "origen": "Punto de recoleccion 1",
-      "destino": "Fundacion",
+      "destino": "Ciudadela",
       "distancia": "10km",
       "duracion": "20min",
       "estado": "En espera",
