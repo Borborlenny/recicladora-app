@@ -1,45 +1,52 @@
 {
   "usuario": [
     {
+      "id": 1,
+      "nombre": "Juan",
+      "email": "juanalvarez@gmail.com",
+      "rol": "admin",
+      "estado": true
+    },
+    {
+      "id": 2,
       "nombre": "Pablo",
       "email": "pablorodriguez@hotmail.com",
       "rol": "admin",
-      "estado": false,
-      "id": "2"
+      "estado": false
     }
   ],
   "hogar": [
     {
+      "id": 1,
       "nombre": "Carlos",
       "tipo_vivienda": "casa",
       "direccion": "Calle 123, Ciudad Centra",
       "referencia": "departamento esquinero, frente a pollos barcelona",
       "telefono": "0438785727",
       "email": "juan.perez@example.com",
-      "fecha_registro": "15-Noviembre-2024",
-      "id": "1"
+      "fecha_registro": "15-Noviembre-2024"
     },
     {
+      "id": 2,
       "nombre": "María",
       "tipo_vivienda": "casa",
       "direccion": "Avenida Principal 456, Barrio Norte",
       "referencia": "casa esquinera, frente a papeleria JuanMarcet",
       "telefono": "0453878522",
       "email": "maria.gomez@example.com",
-      "fecha_registro": "15-Noviembre-2024",
-      "id": "2"
+      "fecha_registro": "15-Noviembre-2024"
     }
   ],
   "material": [
     {
+      "id": 1,
       "tipo_material": "carton",
       "peso_promedio": "5kg",
       "cantidad_promedio": "4",
-      "reciclable": true,
-      "id": "1"
+      "reciclable": true
     },
     {
-      "id": "2",
+      "id": 2,
       "tipo_material": "vidrio",
       "peso_promedio": "3.5kg",
       "cantidad_promedio": "2",
@@ -48,6 +55,7 @@
   ],
   "empresa": [
     {
+      "id": 1,
       "nombre_empresa": "Recicladora S.A",
       "tipo_empressa": "mediana",
       "telefono": "0443878522",
@@ -55,11 +63,10 @@
       "email": "jose.gomez@example.com",
       "convenio_activo": false,
       "materiales_reciclables": "plastico",
-      "fecha_registro": "15-Noviembre-2024",
-      "id": "1"
+      "fecha_registro": "15-Noviembre-2024"
     },
     {
-      "id": "2",
+      "id": 2,
       "nombre_empresa": "Urvaseo S.A",
       "tipo_empressa": "grande",
       "telefono": "04-3878544",
@@ -72,22 +79,22 @@
   ],
   "ruta": [
     {
+      "id": 1,
       "origen": "Punto de recoleccion 1",
       "destino": "Ciudadela",
       "distancia": "10km",
       "duracion": "20min",
       "estado": "En espera",
-      "alta_prioridad": true,
-      "id": "1"
+      "alta_prioridad": true
     },
     {
+      "id": 2,
       "origen": "Punto de recoleccion 2",
       "destino": "Fundacion",
       "distancia": "25km",
       "duracion": "45min",
       "estado": "Cancelado",
-      "alta_prioridad": false,
-      "id": "2"
+      "alta_prioridad": false
     }
   ]
 }

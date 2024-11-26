@@ -27,3 +27,19 @@ form{
   margin-right: 0;
   margin-left: 0;
 }
+
+.formElement input {
+  @apply text-black dark:text-slate-100
+}
+
+.formElement mat-select {
+  @apply text-black dark:text-slate-100
+}
+
+mat-paginator{
+  @apply bg-slate-100 text-black dark:bg-zinc-950 dark:text-white
+}
+
+mat-form-field{
+  @apply text-black dark:text-slate-100
+}

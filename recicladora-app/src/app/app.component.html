@@ -16,43 +16,6 @@
       <mat-icon [ngClass]="{'rotation' : isAnim, 'noRot':!isAnim}">{{ darkMode() ? 'brightness_4' : 'brightness_7' }}</mat-icon>
     </button>
   </nav>
-
   <router-outlet></router-outlet>
 
-
-  <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-      <mat-card-title><strong>{{title}}</strong></mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>Plataforma para gestionar la recolección de reciclaje domiciliario y optimizar rutas para empresas de reciclaje.
-        Esta aplicación permite a los hogares registrarse en un sistema de recolección de reciclaje, gestionar los materiales reciclables que generan (plásticos, metales, papel, vidrio), y facilita a las empresas de reciclaje la consulta de materiales disponibles en la comunidad, así como la planificación eficiente de rutas de recolección.</p>
-      <mat-divider></mat-divider>
-      <h4>🌍 Propósito:</h4>
-      <p>El objetivo de esta plataforma es mejorar la eficiencia en la recolección de materiales reciclables y promover la sostenibilidad en la comunidad. Con esta herramienta, los hogares pueden gestionar los materiales reciclables que generan, mientras que las empresas de reciclaje pueden planificar sus rutas de recolección de manera optimizada.</p>
-      <mat-divider></mat-divider>
-      <h4>🔑 Funcionalidades:</h4>
-      <p>
-        <strong>Gestión e Interface visual de Usuarios:</strong><br> Los hogares pueden registrarse y especificar los materiales reciclables que generan. Los usuarios tienen acceso a un sistema interactivo para ingresar sus datos y gestionar su participación en el reciclaje.<br>
-        <strong>Gestión e Interface visual de Hogares:</strong><br> Los hogares pueden ser gestionados dentro del sistema para registrar y actualizar la información sobre los materiales reciclables que están disponibles para la recolección.<br>
-        <strong>Gestión e Interface visual de Materiales:</strong><br> Los usuarios pueden gestionar la cantidad y el tipo de materiales reciclables disponibles para su recolección, visualizando una lista de los materiales reciclables y su estado de disponibilidad.<br>
-        <strong>Gestión e Interface visual de Empresas:</strong><br> Las empresas de reciclaje pueden consultar los materiales generados en la comunidad, revisar el inventario de reciclaje y gestionar la recolección de materiales mediante una plataforma interactiva.<br>
-        <strong>Gestión e Interface visual de Rutas:</strong><br> Las empresas pueden optimizar y gestionar las rutas de recolección basándose en los datos proporcionados por los hogares, con una interfaz que muestra las rutas sugeridas y los materiales disponibles.</p>
-      <mat-divider></mat-divider>
-      <p>Contribuye a la sostenibilidad y haz tu parte para un futuro más verde. 🌱♻️</p>
-      <mat-divider></mat-divider>
-        <h4>👨‍🦰🚀 Integrantes:</h4>
-    </mat-card-content>
-    <mat-card-footer class="example-card-footer">
-      <mat-chip-set aria-label="Chihuahua traits">
-        @for (integrante of integrantes; track $index) {
-          <mat-chip>{{integrante}}</mat-chip>
-        }
-      </mat-chip-set>
-    </mat-card-footer>
-  </mat-card>
-
 </body>
-
-
-

@@ -1,0 +1,25 @@
+<body class="bg-slate-50 w-full dark:bg-zinc-900">
+  <mat-card class="bg-slate-50 w-full dark:bg-zinc-900" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title><strong class="text-black dark:text-white">{{title}}</strong></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="text-black dark:text-white">Plataforma para gestionar la recolección de reciclaje domiciliario y optimizar rutas para empresas de reciclaje.
+        Esta aplicación permite a los hogares registrarse en un sistema de recolección de reciclaje, gestionar los materiales reciclables que generan (plásticos, metales, papel, vidrio), y facilita a las empresas de reciclaje la consulta de materiales disponibles en la comunidad, así como la planificación eficiente de rutas de recolección.</p>
+      <mat-divider></mat-divider>
+      <h4 class="text-black dark:text-white">🌍 Propósito:</h4>
+      <p class="text-black dark:text-white">El objetivo de esta plataforma es mejorar la eficiencia en la recolección de materiales reciclables y promover la sostenibilidad en la comunidad. Con esta herramienta, los hogares pueden gestionar los materiales reciclables que generan, mientras que las empresas de reciclaje pueden planificar sus rutas de recolección de manera optimizada.</p>
+      <mat-divider></mat-divider>
+      <p class="text-black dark:text-white">Contribuye a la sostenibilidad y haz tu parte para un futuro más verde. 🌱♻️</p>
+      <mat-divider></mat-divider>
+        <h4 class="text-black dark:text-white">👨‍🦰🚀 Integrantes:</h4>
+    </mat-card-content>
+    <mat-card-footer class="example-card-footer">
+      <mat-chip-set aria-label="Chihuahua traits">
+        @for (integrante of integrantes; track $index) {
+          <mat-chip class="matChipIntegrantes " ><p class="text-black dark:text-white">{{integrante}}</p></mat-chip>
+        }
+      </mat-chip-set>
+    </mat-card-footer>
+  </mat-card>
+</body>

@@ -1,0 +1,7 @@
+.matChipIntegrantes{
+  margin: 4px 4px;
+}
+
+mat-card {
+  border: none; /* Opcional: agregar borde */
+}
