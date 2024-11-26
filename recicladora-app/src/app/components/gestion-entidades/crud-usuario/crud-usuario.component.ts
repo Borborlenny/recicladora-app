@@ -114,12 +114,11 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
   }
 
   eliminar(usuario:Usuario){
-
     const dialogRef = this.mydialog.open(MyDialogComponent,{
       data:{
         titulo: "Eliminación de Usuario",
         contenido: "¿Estas seguro de eliminar el usuario "+usuario.nombre+"?"
-      }as DialogData,
+      },
     })
 
     dialogRef.afterClosed().subscribe(result => {
@@ -130,7 +129,7 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
         })
       }
       else if(result==='Cancelar'){
-
+        console.log('diste cancelar')
       }
     })
   }

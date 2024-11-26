@@ -116,7 +116,7 @@ export class CrudMaterialComponent {
       data:{
         titulo: "Eliminación de Material",
         contenido: "¿Estas seguro de eliminar el material de "+material.tipo_material+"?"
-      }as DialogData,
+      },
     })
 
     dialogRef.afterClosed().subscribe(result => {

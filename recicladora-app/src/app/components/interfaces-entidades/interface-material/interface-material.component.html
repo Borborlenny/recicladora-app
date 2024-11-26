@@ -11,7 +11,7 @@
     </div>
 
     @if (materiales.length === 0) {
-      <p>No hay materiales para mostrar.</p>
+      <p class="text-black dark:text-white">No hay materiales para mostrar.</p>
     }
     @else {
       @for (material of materiales; track material.id) {

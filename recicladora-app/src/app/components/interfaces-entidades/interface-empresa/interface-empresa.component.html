@@ -11,7 +11,7 @@
     </div>
 
     @if (empresas.length === 0) {
-      <p>No hay empresas para mostrar.</p>
+      <p class="text-black dark:text-white">No hay empresas para mostrar.</p>
     }
     @else {
       @for (empresa of empresas; track empresa.id) {

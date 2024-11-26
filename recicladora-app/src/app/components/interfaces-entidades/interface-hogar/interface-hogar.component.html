@@ -11,7 +11,7 @@
     </div>
 
     @if (hogares.length === 0) {
-      <p>No hay hogares para mostrar.</p>
+      <p class="text-black dark:text-white">No hay hogares para mostrar.</p>
     }
     @else {
       @for (hogar of hogares; track hogar.id) {

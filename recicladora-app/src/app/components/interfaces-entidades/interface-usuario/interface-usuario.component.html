@@ -12,7 +12,7 @@
     </div>
 
     @if (usuarios.length === 0) {
-      <p>No hay usuarios para mostrar.</p>
+      <p class="text-black dark:text-white">No hay usuarios para mostrar.</p>
     }
     @else {
       @for (usuario of usuarios; track usuario.id) {

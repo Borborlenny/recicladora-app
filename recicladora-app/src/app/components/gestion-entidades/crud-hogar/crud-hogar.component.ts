@@ -130,7 +130,7 @@ export class CrudHogarComponent {
         data:{
           titulo: "Eliminación de Hogar",
           contenido: "¿Estas seguro de eliminar el hogar de "+hogar.nombre+"?"
-        }as DialogData,
+        },
       })
 
       dialogRef.afterClosed().subscribe(result => {

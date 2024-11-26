@@ -124,7 +124,7 @@ export class CrudEmpresaComponent {
       data:{
         titulo: "Eliminación de Empresa",
         contenido: "¿Estas seguro de eliminar la empresa "+empresa.nombre_empresa+"?"
-      }as DialogData,
+      },
     })
 
     dialogRef.afterClosed().subscribe(result => {

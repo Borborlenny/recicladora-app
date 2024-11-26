@@ -118,8 +118,8 @@ export class CrudRutaComponent {
     const dialogRef = this.mydialog.open(MyDialogComponent,{
       data:{
         titulo: "Eliminación de Ruta",
-        contenido: "¿Estas seguro de eliminar la ruta con origen en '"+ruta.origen+"' y con destino en "+ruta.destino+" ?"
-      }as DialogData,
+        contenido: "¿Estas seguro de eliminar la ruta con origen en '"+ruta.origen+"' y con destino en '"+ruta.destino+" '?"
+      },
     })
 
     dialogRef.afterClosed().subscribe(result => {

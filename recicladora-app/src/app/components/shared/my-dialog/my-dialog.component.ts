@@ -18,11 +18,11 @@ export class MyDialogComponent {
   }
 
   onAceptar(){
-    this.dialogRef.close();
+    this.dialogRef.close('Aceptar');
   }
 
   onCancelar(){
-    this.dialogRef.close();
+    this.dialogRef.close('Cancelar');
   }
 
 
